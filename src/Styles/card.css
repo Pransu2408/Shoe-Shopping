@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 section{
     box-sizing: border-box;
@@ -86,3 +87,38 @@ section{
     position: relative;
     top: -10px;
 }
+=======
+section{
+    box-sizing: border-box;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: auto;
+    overflow-x: hidden;
+}
+.image_box img{
+    width: 100%;
+}
+.cards{
+    width: 250px;
+    padding: 20px;
+    margin: 0 auto;
+}
+.cards:hover{
+
+    box-shadow: 0 10px 10px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+}
+.details button{
+    padding: 5px 10px;
+    border: none;
+    font-weight: bold;
+    color: #fff;
+    background-color: rgb(255, 166, 0);
+    cursor: pointer;
+    border-radius: 5px;
+}
+.details button:hover{
+    background-color: rgb(218, 143, 4);
+}
+>>>>>>> b3a28b23bc2610f33b81c9e611ad8c6c4bf31213
