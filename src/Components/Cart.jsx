@@ -1,28 +1,51 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import '../Styles/cart.css'
 
 const Cart = ({cart,setCart}) => {
 
   const [price,setPrice] = useState(0);
+  
+  const removeItem = (id) =>{
+
+      const update = cart.filter(item => item.id !== id);
+
+      setCart(update);
+  };
+
+  useEffect(() =>{
+
+    const tot = cart.reduce((acc,item) => acc + item.price, 0);
+    setPrice(tot);
+  },[cart]);
 
   return (
     <div>{
       cart?.map((item) => (
         <div className='cart_box' key={item.id}>
           <div className='cart_img'>
-            <img src={item.img}></img>
-            <p>{item.title}</p>
+            <img alt='shoe' className='theimg' src={item.img}></img>
+            
           </div>
           <div>
-            <button>+</button>
-            <button>-</button>
+            <p className='itemtit'>{item.title}</p>
+            <span className='itemprice'>MRP : &#x20B9; {item.price}</span>
+            <button className='button-17' onClick={()=>removeItem(item.id)}>Remove</button>
           </div>
           <div>
-            <span>{item.price}</span>
-            <button>Remove</button>
+            
+            
           </div>
         </div>
 ))
-}</div>
+}
+{cart.length !== 0 && (
+<div className='lastly'>
+<hr className='f'></hr>
+  <p className='summ'>Summary</p>
+  <p className='tott'>Total = &#x20B9; {price}</p>
+  <button class="button-27" >Proceed To Checkout</button>
+</div>)}
+</div>
   )
 }
 
